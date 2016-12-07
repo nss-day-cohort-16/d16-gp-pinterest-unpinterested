@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.factory('PinFactory', function($http, AuthFactory, FBCreds){
+app.factory('PinFactory', function($http, AuthFactory, FBCreds, PostingBoard){
 
 	
 	let createPin = (pinObj) => {
@@ -17,11 +17,17 @@ app.factory('PinFactory', function($http, AuthFactory, FBCreds){
 	};
 
 	let getPinsForABoard =(bId) => {
-		var x = postingBoard;
-		console.log("x", x);
+		// var x = postingBoard;
+		// console.log("x", x);
+		let PB = PostingBoard.postingBoard;
+		console.log("PB", PB);
 		return new Promise((resolve,reject) => {
-			$http.get(`${FBCreds.URL}/pins.json?orderBy="board"&equalTo='${bId}'`)
+			$http.get(`${FBCreds.URL}/pins.json?orderBy="board"&equalTo="${PB}"`)
 			.success((pins) => {
+				// let pinsArray = $.map(pins, function(value, index) {
+				//     return [value];
+				// });
+				// console.log("pinsArray", pinsArray);
 				resolve(pins);
 			})
 			.error((error) => {
@@ -31,7 +37,7 @@ app.factory('PinFactory', function($http, AuthFactory, FBCreds){
 	};
 
 
-var postingBoard = null;
+// var postingBoard = null;
 
-	return {createPin, postingBoard, getPinsForABoard};
+	return {createPin, getPinsForABoard};
 });
