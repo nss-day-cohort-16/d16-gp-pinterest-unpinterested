@@ -16,9 +16,9 @@ app.config(($routeProvider)=>{
     	templateUrl: 'partials/itemModal.html',
     	controller: 'ItemViewCtrl'
     })
-    .when('/item/new', {                         
+    .when('/item/new', {
     	templateUrl: 'partials/createPin.html',
-    	controller: 'CreatePinCtrl' 
+    	controller: 'CreatePinCtrl'
     })
     .when('/board/:specificBoard', {
     	templateUrl: 'partials/boardView.html',
