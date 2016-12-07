@@ -12,13 +12,13 @@ app.config(($routeProvider) => {
     	templateUrl: 'partials/logout.html',
     	controller: 'LogoutCtrl'
     })
-    .when('/item/:specificItem', {
-    	templateUrl: 'partials/itemModal.html',
-    	controller: 'ItemViewCtrl'
-    })
     .when('/item/new', {
     	templateUrl: 'partials/createPin.html',
     	controller: 'CreatePinCtrl'
+    })
+    .when('/item/:specificItem', {
+        templateUrl: 'partials/itemModal.html',
+        controller: 'ItemViewCtrl'
     })
     .when('/board/new', {
     	templateUrl: 'partials/createBoard.html',
