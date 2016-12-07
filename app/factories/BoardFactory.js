@@ -17,5 +17,27 @@ app.factory('BoardFactory', function($http, AuthFactory, FBCreds){
 	 	
 	 	});
 	 };
-	 return{createBoard};
+
+	 let getBoards = function() {
+	 	console.log("running get boards");
+	 	let boards = [];
+	 	return new Promise ((resolve, reject) => {
+	 		$http.get(`${FBCreds.URL}/boards.json`)
+	 		.success( (obj) => {
+	 			console.log("obj", obj);
+	 			let boardCollection = obj;
+	 			Object.keys(boardCollection).forEach((key) => {
+					boardCollection[key].id = key;
+					boards.push(boardCollection[key]);
+				});
+	 			console.log("boards", boards);
+	 			resolve(boards);
+	 		})
+	 			.error((error) => {
+	 				reject(error);
+	 			});
+	 	}); 
+	 };
+
+	 return{createBoard, getBoards};
 });
