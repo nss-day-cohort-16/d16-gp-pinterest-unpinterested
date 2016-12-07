@@ -24,14 +24,15 @@ app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory, BoardFact
 	});
 		console.log("sumtin",sumtin);
 	});
-	
-	};	
-	
+
+	};
+
 
 	$scope.login = () => {
 	AuthFactory.loginUser($scope.account)
 	.then((userData) => {
 		console.log("user", userData);
-	});	
+		AuthFactory.isAuthenticated();
+	});
 	};
 });

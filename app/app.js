@@ -20,13 +20,13 @@ app.config(($routeProvider) => {
     	templateUrl: 'partials/createPin.html',
     	controller: 'CreatePinCtrl'
     })
-    .when('/board/:specificBoard', {
-    	templateUrl: 'partials/boardView.html',
-    	controller: 'BoardViewCtrl'  //doesn't exist yet
-    })
     .when('/board/new', {
     	templateUrl: 'partials/createBoard.html',
     	controller: 'BoardCtrl'
+    })
+    .when('/board/:specificBoard', {
+        templateUrl: 'partials/boardView.html',
+        controller: 'BoardViewCtrl'  //doesn't exist yet
     })
     .when('/main', {
         templateUrl: 'partials/main.html',
