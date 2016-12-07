@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('CreatePinCtrl', function($scope,$window,PinFactory){
+app.controller('CreatePinCtrl', function($scope,$window,PinFactory, PostingBoard){
 	console.log("$scope.pin1", $scope.pin);
 $scope.pin = {
 	name: '',
@@ -8,7 +8,7 @@ $scope.pin = {
 	description: ''
 };
 
-	$scope.pin.board = PinFactory.postingBoard;
+	$scope.pin.board = PostingBoard.postingBoard;
 
 console.log("$scope.pin.board ", $scope.pin.board );
 

@@ -1,12 +1,15 @@
-<div class='container'>
+<!-- <div class='container'>
 
-	<div id='{{pin.boardid}}' class='pin'>
-		<span class='col-md-4'><img src='{{pin.img}}'></span>
-		<span class='col-md-4'>{{pin.name}}</span>
-		<span class='col-md-4'>{{pin.description}}</span>
+	<div ng-repeat="pin in pins">
+		<div id='{{pin.boardid}}' class='pin'>
+			<span class='col-md-4'><img src='{{pin.img}}'></span>
+			<span class='col-md-4'>{{pin.name}}</span>
+			<span class='col-md-4'>{{pin.description}}</span>
+		</div>
+		<a ng-href="#/item/new"><button id="add"  class="btn btn-default">Add</button></a>
 	</div>
-	<a ng-href="#/item/new"><button id="add"  class="btn btn-default">Add</button></a>
-</div>
+
+</div> -->
 
 
 
@@ -14,3 +17,14 @@
 <h2>{{greeting}}</h2>
 
 <!-- ng-repeat='pin in pins' -->
+
+
+
+<div ng-repeat="pin in pins">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-7" ><a ng-href="#/items/{{item.id}}">{{pin.name}}</a></div>
+      <div class="col-xs-2">{{pin.img}}</div>
+    </div>
+  </div>
+</div>

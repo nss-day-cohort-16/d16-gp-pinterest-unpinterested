@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('MainCtrl', function($location, $scope, $window, BoardFactory,PinFactory
+app.controller('MainCtrl', function($location, $scope, $window, BoardFactory,PinFactory, PostingBoard
 ){
 	$scope.greetings = 'hello';
 	$scope.boards = null;
@@ -14,7 +14,7 @@ app.controller('MainCtrl', function($location, $scope, $window, BoardFactory,Pin
 
 	$scope.viewSelectedBoard = (boardID)=>{
 		console.log("boardID", boardID);
-		PinFactory.postingBoard = boardID;
+		PostingBoard.postingBoard = boardID;
 		BoardFactory.getSingleBoard(boardID)
 
 		.then((chosenBoard)=>{
