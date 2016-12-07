@@ -18,5 +18,5 @@ app.controller('BoardCtrl', function($scope, BoardFactory, AuthFactory) {
 		.then( () => {
 			$scope.$apply();
 		});
-	}
+	};
 });
