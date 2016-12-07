@@ -33,11 +33,24 @@ app.factory('BoardFactory', function($http, AuthFactory, FBCreds){
 	 			console.log("boards", boards);
 	 			resolve(boards);
 	 		})
-	 			.error((error) => {
-	 				reject(error);
-	 			});
+ 			.error((error) => {
+ 				reject(error);
+ 			});
 	 	}); 
 	 };
 
-	 return{createBoard, getBoards};
+	let getSingleBoard = (boardID)=>{
+	 	return new Promise ((resolve, reject) => {
+	 		$http.get(`${FBCreds.URL}/boards/${boardID}.json`)
+	 		.success( (board) => {
+	 			console.log("board", board);
+	 			resolve(board);
+	 		})
+ 			.error((error) => {
+ 				reject(error);
+ 			});
+	 	}); 
+	};
+
+	 return{createBoard, getBoards, getSingleBoard};
 });

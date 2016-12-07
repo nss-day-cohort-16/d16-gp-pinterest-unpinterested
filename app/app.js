@@ -26,7 +26,7 @@ app.config(($routeProvider) => {
     })
     .when('/board/:specificBoard', {
         templateUrl: 'partials/boardView.html',
-        controller: 'BoardViewCtrl'  //doesn't exist yet
+        controller: 'BoardViewCtrl'
     })
     .when('/main', {
         templateUrl: 'partials/main.html',
