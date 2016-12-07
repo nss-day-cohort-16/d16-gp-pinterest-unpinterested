@@ -2,7 +2,7 @@
 
 var app = angular.module('unpinterested', ['ngRoute']);
 
-app.config(($routeProvider)=>{
+app.config(($routeProvider) => {
     $routeProvider
     .when('/login', {
         templateUrl: 'partials/loginForm.html',
@@ -27,6 +27,10 @@ app.config(($routeProvider)=>{
     .when('/board/new', {
     	templateUrl: 'partials/createBoard.html',
     	controller: 'BoardCtrl'
+    })
+    .when('/main', {
+        templateUrl: 'partials/main.html',
+        controller: 'MainCtrl'
     })
     .otherwise('/login');
 });
