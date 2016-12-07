@@ -2,7 +2,6 @@
 
 app.factory('UserFactory', function($http,AuthFactory,FBCreds){
 	 
-	 // $scope.uid = AuthFactory. getUser();
 
 	 let createFBUser = (userObj) => {
 	 	return new Promise ((resolve, reject) => {
