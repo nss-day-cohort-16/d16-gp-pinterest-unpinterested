@@ -1,10 +1,15 @@
 "use strict";
 
-app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory){
+app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory, BoardFactory){
 	$scope.account = {
 		name: '',
 		email: '',
 		password: ''
+	};
+
+	$scope.board = {
+		uid: '',
+		title: 'My Default Board'
 	};
 	console.log("AuthFactory.getUser",AuthFactory.getUser());
 
@@ -12,10 +17,16 @@ app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory){
 	AuthFactory.createUser($scope.account)
 	.then((sumtin) => {
 		$scope.account.uid = sumtin.uid;
-	UserFactory.createFBUser($scope.account);
+		$scope.board.uid = sumtin.uid;
+	UserFactory.createFBUser($scope.account)
+	.then((obj) => {
+		BoardFactory.createBoard($scope.board);
+	});
 		console.log("sumtin",sumtin);
-	});	
-	};
+	});
+	
+	};	
+	
 
 	$scope.login = () => {
 	AuthFactory.loginUser($scope.account)
