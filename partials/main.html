@@ -1,4 +1,5 @@
-<div id='container' ng-repeat='pin in pins'>
-	<div class='col-md-4'>{{pin.image}}</div>
-	<div class='col-md-4'>{{pin.name}}</div>
+<div class='container' ng-repeat='board in boards'>
+	<div id='board-{{board.title}}' class='board'>
+		<span class='col-md-12'>{{board.title}}</span>
+	</div>
 </div>
