@@ -1,16 +1,16 @@
 <section class="auth-form" ng-controller="LoginCtrl">
-	<h2>Login or Register</h2>
-	<div>
+	<h2 id='login-header'>Login or Register</h2>
+	<div id='email-input'>
 		Email: <input type="text" autofocus="true" ng-model="account.email">
 	</div>
-	<div>
+	<div id='password-input'>
 		Password: <input type="password" ng-model="account.password">
 	</div>
-	<div>
-		NAme: <input type="text" ng-model="account.name">
+	<div id='name-input'>
+		Name: <input type="text" ng-model="account.name">
 	</div>
 	<div>
-		<button class="btn btn-info" ng-click="login()">Login</button>
-		<button class="btn btn-default" ng-click="register()">Register</button>
+		<button id='login-btn' class="btn btn-info" ng-click="login()">Login</button>
+		<button id='register-btn' class="btn btn-default" ng-click="register()">Register</button>
 	</div>
 </section>
