@@ -22,20 +22,23 @@ app.factory('BoardFactory', function($http, AuthFactory, FBCreds){
 	 	console.log("running get boards");
 	 	let boards = [];
 	 	return new Promise ((resolve, reject) => {
-	 		$http.get(`${FBCreds.URL}/boards.json`)
-	 		.success( (obj) => {
-	 			console.log("obj", obj);
-	 			let boardCollection = obj;
-	 			Object.keys(boardCollection).forEach((key) => {
-					boardCollection[key].id = key;
-					boards.push(boardCollection[key]);
-				});
-	 			console.log("boards", boards);
-	 			resolve(boards);
-	 		})
- 			.error((error) => {
- 				reject(error);
- 			});
+	 		AuthFactory.isAuthenticated().then(()=>{
+			 	let currentUser = AuthFactory.getUser();
+		 		$http.get(`${FBCreds.URL}/boards.json?orderBy="uid"&equalTo="${currentUser}"`)
+		 		.success( (obj) => {
+		 			console.log("obj", obj);
+		 			let boardCollection = obj;
+		 			Object.keys(boardCollection).forEach((key) => {
+						boardCollection[key].id = key;
+						boards.push(boardCollection[key]);
+					});
+		 			console.log("boards", boards);
+		 			resolve(boards);
+		 		})
+	 			.error((error) => {
+	 				reject(error);
+	 			});
+	 		});
 	 	}); 
 	 };
 
