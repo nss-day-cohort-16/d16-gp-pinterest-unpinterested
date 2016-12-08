@@ -1,3 +1,16 @@
+.auth-form {
+  width: 40%;
+  margin: 0 auto; }
 
+#login-header {
+  text-align: center;
+  margin: 0 auto; }
+
+#password-input {
+  margin-right: 6em; }
+
+#email-input,
+#name-input {
+  margin: 1em auto; }
 
 /*# sourceMappingURL=main.css.map */
