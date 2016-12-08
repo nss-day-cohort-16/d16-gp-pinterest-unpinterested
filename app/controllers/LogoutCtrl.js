@@ -4,7 +4,10 @@ app.controller('LogoutCtrl', function( AuthFactory, $window){
 
 	AuthFactory.logoutUser()
 	.then(()=>{
-		$window.location.href = "#/login";
+		AuthFactory.isAuthenticated()
+		.then(()=>{
+			$window.location.href = "#/login";
+		});
 	});
 	
 });
