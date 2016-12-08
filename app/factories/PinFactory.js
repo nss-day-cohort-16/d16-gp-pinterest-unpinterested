@@ -24,10 +24,26 @@ app.factory('PinFactory', function($http, AuthFactory, FBCreds, PostingBoard){
 		return new Promise((resolve,reject) => {
 			$http.get(`${FBCreds.URL}/pins.json?orderBy="board"&equalTo="${PB}"`)
 			.success((pins) => {
-				// let pinsArray = $.map(pins, function(value, index) {
-				//     return [value];
-				// });
-				// console.log("pinsArray", pinsArray);
+					let idArray = Object.keys(pins); 
+					idArray.forEach(function(key){
+					  pins[key].id = key;
+					});
+					console.log("id", idArray);
+				resolve(pins);
+				console.log("pins", pins);
+			})
+			.error((error) => {
+				reject(error);
+			});
+		});
+	};
+
+	let deletePinsFromFB = (id) => {
+		// let id = $event.target.id;
+		console.log("id", id);
+		return new Promise((resolve,reject) => {
+			$http.delete(`${FBCreds.URL}/pins/${id}.json`)
+			.success((pins) => {
 				resolve(pins);
 			})
 			.error((error) => {
@@ -39,5 +55,5 @@ app.factory('PinFactory', function($http, AuthFactory, FBCreds, PostingBoard){
 
 // var postingBoard = null;
 
-	return {createPin, getPinsForABoard};
+	return {createPin, getPinsForABoard,deletePinsFromFB};
 });
