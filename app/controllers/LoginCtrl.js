@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory, BoardFactory){
+app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory, BoardFactory, $window){
 	$scope.account = {
 		name: '',
 		email: '',
@@ -33,6 +33,7 @@ app.controller('LoginCtrl', function($scope, AuthFactory, UserFactory, BoardFact
 	.then((userData) => {
 		console.log("user", userData);
 		AuthFactory.isAuthenticated();
+		$window.location.href = "#/main";
 	});
 	};
 });

@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('BoardCtrl', function($scope, BoardFactory, AuthFactory) {
+app.controller('BoardCtrl', function($scope, BoardFactory, AuthFactory, $window) {
 
 	$scope.board = {
 		uid: "",
@@ -17,6 +17,7 @@ app.controller('BoardCtrl', function($scope, BoardFactory, AuthFactory) {
 		BoardFactory.createBoard($scope.board)
 		.then( () => {
 			$scope.$apply();
+			$window.location.href = "#/main";
 		});
 	};
 });
